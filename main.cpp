@@ -6,4 +6,9 @@
 //  Copyright © 2016年 R Z. All rights reserved.
 //
 
-#include <stdio.h>
+#include <iostream>
+
+int main(){
+    std::cout<<"Start!\n";
+    return 0;
+}
