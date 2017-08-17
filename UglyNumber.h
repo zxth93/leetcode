@@ -8,6 +8,11 @@
 
 #ifndef UglyNumber_h
 #define UglyNumber_h
+class Solution{
+    public:
+        bool isUgly(int num){
 
+        }
+};
 
 #endif /* UglyNumber_h */
