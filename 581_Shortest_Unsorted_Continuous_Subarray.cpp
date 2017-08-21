@@ -15,24 +15,18 @@ using namespace std;
 class Solution {
 public:
     int findUnsortedSubarray(vector<int>& nums) {
-        int l = 0;
-        int r = nums.size()-1;
-        int result=0;
-        while(l < r){
-            int lnum = nums[l];
-            int rnum = nums[r];
-            if(lnum <= rnum){
-                if(lnum <= nums[l+1]){
-                    l++;
-                }
-                if(rnum >= nums[r-1]){
-                    r--;
-                }
-            }else{
-                result = r - l + 1;
-                break;
-            }
+        int length = nums.size();
+        int beg = -1;
+        int end = -2;
+        int max = nums[0];
+        int min = nums[length-1];
+        for(int i=1; i<length; i++){
+            max = max<nums[i]?nums[i]:max;
+            min = min>nums[length-i-1]?nums[length-i-1]:min;
+            if(max>nums[i]) end=i;
+            if(min<nums[length-i-1]) beg=length-i-1;
         }
-        return result;
+        
+        return end-beg+1;
     }
 };
