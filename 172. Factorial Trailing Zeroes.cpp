@@ -7,3 +7,19 @@
 //
 
 #include <stdio.h>
+
+
+
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        long result = 0;
+        long x = 5;
+        while(x<=n){
+            result += n/x;
+            x *=5;
+        }
+        
+        return result;
+    }
+};
