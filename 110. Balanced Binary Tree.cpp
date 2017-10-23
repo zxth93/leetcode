@@ -31,3 +31,19 @@ public:
         return 1 + max(depth(root->left), depth(root->right));
     }
 };
+
+class Solution2 {
+public:
+    bool isBalanced(TreeNode* root) {
+        return dfsHeight(root) != -1;
+    }
+    int dfsHeight(TreeNode* root){
+        if(!root) return 0;
+        int l = dfsHeight(root->left);
+        if(l==-1) return -1;
+        int r = dfsHeight(root->right);
+        if(r==-1) return -1;
+        if(abs(l-r)>1) return -1;
+        return 1 + max(dfsHeight(root->left), dfsHeight(root->right));
+    }
+};
