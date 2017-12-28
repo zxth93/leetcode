@@ -29,4 +29,20 @@ public:
         }
         return dp[n][sum];
     }
+    
+    bool canPartition2(vector<int>& nums) {
+        int n = nums.size();
+        int sum = 0;
+        for(int num : nums) sum+=num;
+        if((sum&1)==1) return false;
+        sum /= 2;
+        vector<bool> dp(sum+1, false);
+        dp[0]=true;
+        for(int num : nums){
+            for(int i=sum; i>=num; i--){
+                dp[i]=dp[i]||dp[i-num];
+            }
+        }
+        return dp[sum];
+    }
 };
