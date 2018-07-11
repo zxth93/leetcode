@@ -8,6 +8,9 @@
 
 #include <stdio.h>
 #include <vector>
+#include <functional>
+#include <numeric>
+
 using namespace std;
 class Solution {
 public:
